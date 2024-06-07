@@ -12,20 +12,20 @@
 
 #include "libftprintf.h"
 
-int	ft_nbr_len(unsigned int nbr)
+static int	ft_nbr_len(unsigned int nbr)
 {
 	int	len;
 
-	len = 0;
-	while (nbr != 0)
+	len = 1;
+	while (nbr >= 10)
 	{
 		len++;
-		nbr = nbr / 10;
+		nbr /= 10;
 	}
 	return (len);
 }
 
-char	*ft_uitoa(unsigned int n)
+static char	*ft_uitoa(unsigned int n)
 {
 	char	*nbr;
 	int		len;
@@ -37,9 +37,8 @@ char	*ft_uitoa(unsigned int n)
 	nbr[len] = '\0';
 	while (n != 0)
 	{
-		nbr[len - 1] = n % 10 + 48;
+		nbr[--len] = n % 10 + '0';
 		n = n / 10;
-		len--;
 	}
 	return (nbr);
 }

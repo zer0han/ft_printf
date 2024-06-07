@@ -26,20 +26,13 @@ void	ft_putstr(char *str)
 
 int	ft_printstr(char *str)
 {
-	int	i;
-
-	i = 0;
-	if (str == NULL)
+	if (!str)
 	{
-		ft_putstr("(null)");
-		return (6);
+		ft_pustr("(null)");
+		return (0);
 	}
-	while (str[i])
-	{
-		write (1, &str[i], 1);
-		i++;
-	}
-	return (i);
+	ft_pustr(str);
+	return ((size_t)ft_strlen(str));
 }
 
 int	ft_printnbr(int n)
@@ -47,8 +40,9 @@ int	ft_printnbr(int n)
 	int		len;
 	char	*nbr;
 
-	len = 0;
 	nbr = ft_itoa(n);
+	if (!nbr)
+		return (0);
 	len = ft_printstr(nbr);
 	free (nbr);
 	return (len);
@@ -59,4 +53,3 @@ int	ft_percent_print(void)
 	write (1, "%", 1);
 	return (1);
 }
-
