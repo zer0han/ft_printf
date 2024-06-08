@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_nbr_len(unsigned int nbr)
 {
@@ -54,7 +54,7 @@ int	ft_print_unsigned(unsigned int n)
 	else
 	{
 		nbr = ft_uitoa(n);
-		prt_len += ft_printstr(nbr);
+		prt_len += ft_print_str(nbr);
 		free (nbr);
 	}
 	return (prt_len);

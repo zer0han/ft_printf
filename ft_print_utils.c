@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_putstr(char *str)
 {
@@ -24,18 +24,18 @@ void	ft_putstr(char *str)
 	}
 }
 
-int	ft_printstr(char *str)
+int	ft_print_str(char *str)
 {
 	if (!str)
 	{
-		ft_pustr("(null)");
+		ft_putstr("(null)");
 		return (0);
 	}
-	ft_pustr(str);
+	ft_putstr(str);
 	return ((size_t)ft_strlen(str));
 }
 
-int	ft_printnbr(int n)
+int	ft_print_int(int n)
 {
 	int		len;
 	char	*nbr;
@@ -43,7 +43,7 @@ int	ft_printnbr(int n)
 	nbr = ft_itoa(n);
 	if (!nbr)
 		return (0);
-	len = ft_printstr(nbr);
+	len = ft_print_str(nbr);
 	free (nbr);
 	return (len);
 }

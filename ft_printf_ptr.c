@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_ptr_len(unsigned long nbr)
 {
@@ -46,6 +46,7 @@ int	ft_print_ptr(void *ptr)
 	unsigned long	ptr_value;
 	int				len;
 
+	len = 0;
 	ptr_value = (unsigned long)ptr;
 	len += write (1, "0x", 2);
 	if (ptr == 0)

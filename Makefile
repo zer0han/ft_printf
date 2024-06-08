@@ -12,37 +12,31 @@
 
 NAME	= libftprintf.a
 
-INCLUDES	= libftprintf.h
+INCLUDES	= ft_printf.h
 
 CC	= gcc
 
-CFLAGS	= -Wall -Werror - Wextra
+CFLAGS	= -Wall -Werror -Wextra
 
 AR	= ar rcs
 
-SRCS	= ft_printf.c, ft_print_utils.c, ft_printf_unsigned.c \
-			ft_printf_ptr.c, ft_printf_hexa.c
+SRCS	= ft_printf.c ft_print_utils.c ft_printf_unsigned.c \
+			ft_printf_ptr.c ft_printf_hexa.c ft_putchar_fd.c\
+			ft_itoa.c ft_strlen.c
 
-OBJS	= $(SRCS: .c=.o)
-
-BONUS_SRCS	= 
-
-BONUS_OBJS	= $(BONUS_SRCS:.c=.o)
+OBJS	= $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) &(INCLUDES)
+$(NAME): $(OBJS) $(INCLUDES)
 		$(AR) $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-		$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
-
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
 		rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean
+.PHONY: all clean fclean re

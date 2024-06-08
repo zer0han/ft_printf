@@ -1,45 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_hexa.c                                   :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdalal <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 15:04:07 by rdalal            #+#    #+#             */
-/*   Updated: 2024/06/06 15:04:08 by rdalal           ###   ########.fr       */
+/*   Created: 2024/05/23 17:28:12 by rdalal            #+#    #+#             */
+/*   Updated: 2024/06/07 23:00:14 by rdalal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putnbr_base(unsigned int nbr, const char *base)
-{
-	if (nbr >= 16)
-		ft_putnbr_base(nbr / 16, base);
-	write(1, &base[nbr % 16], 1);
-}
-
-static int	ft_numlen_base(unsigned int nbr, int base)
+static int	num_len(int n)
 {
 	int	len;
 
 	len = 1;
-	while (nbr >= (unsigned int)base)
+	if (n < 1)
+		len++;
+	while (n != 0)
 	{
-		nbr /= base;
+		n /= 10;
 		len++;
 	}
 	return (len);
 }
 
-int	ft_print_hexa(unsigned int nbr, int uppercase)
+char	*ft_itoa(int n)
 {
-	const char	*base;
+	int				len;
+	unsigned int	nbr;
+	char			*result;
 
-	if (uppercase)
-		base = "0123456789ABCDEF";
+	len = num_len(n);
+	if (n < 0)
+		nbr = -n;
 	else
-		base = "0123456789abcdef";
-	ft_putnbr_base(nbr, base);
-	return (ft_numlen_base(nbr, 16));
+		nbr = n;
+	result = (char *)malloc(len * sizeof(char));
+	if (!result)
+		return (NULL);
+	result [len - 1] = '\0';
+	while (len > 1)
+	{
+		len--;
+		result [len -1] = nbr % 10 + '0';
+		nbr /= 10;
+	}
+	if (n < 0)
+		result[0] = '-';
+	return (result);
 }
