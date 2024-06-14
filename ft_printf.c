@@ -26,9 +26,9 @@ static int	ft_format(char type, va_list args)
 		return (ft_putchar_fd(va_arg(args, int), 1), 1);
 	else if (type == 's')
 		return (ft_print_str(va_arg(args, char *)));
-	else if (type == 'p' || type == 'i')
-		return (ft_print_ptr(va_arg(args, void *)));
-	else if (type == 'd')
+	else if (type == 'p')
+		return (ft_print_ptr(va_arg(args, unsigned long long)));
+	else if (type == 'd' || type == 'i')
 		return (ft_print_int(va_arg(args, int)));
 	else if (type == 'u')
 		return (ft_print_unsigned(va_arg(args, int)));

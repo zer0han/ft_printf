@@ -12,6 +12,11 @@
 
 #include "ft_printf.h"
 
+void	ft_putchar_fd(char c, int fd)
+{
+	write (fd, &c, 1);
+}
+
 void	ft_putstr(char *str)
 {
 	int	i;
@@ -26,13 +31,13 @@ void	ft_putstr(char *str)
 
 int	ft_print_str(char *str)
 {
-	if (!str)
+	if (str == NULL)
 	{
 		ft_putstr("(null)");
-		return (0);
+		return (6);
 	}
 	ft_putstr(str);
-	return ((size_t)ft_strlen(str));
+	return (ft_strlen(str));
 }
 
 int	ft_print_int(int n)

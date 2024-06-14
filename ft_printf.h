@@ -28,7 +28,7 @@ int		ft_print_int(int n);
 
 int		ft_print_unsigned(unsigned int n);
 
-int		ft_print_ptr(void *ptr);
+int		ft_print_ptr(unsigned long long ptr);
 
 int		ft_print_hexa(unsigned int nbr, int uppercase);
 
