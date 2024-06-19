@@ -40,17 +40,14 @@ int	ft_print_str(char *str)
 	return (ft_strlen(str));
 }
 
-int	ft_print_int(int n)
+size_t	ft_strlen(char const *str)
 {
-	int		len;
-	char	*nbr;
+	size_t	i;
 
-	nbr = ft_itoa(n);
-	if (!nbr)
-		return (0);
-	len = ft_print_str(nbr);
-	free (nbr);
-	return (len);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
 
 int	ft_percent_print(void)

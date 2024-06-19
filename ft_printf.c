@@ -27,7 +27,7 @@ static int	ft_format(char type, va_list args)
 	else if (type == 's')
 		return (ft_print_str(va_arg(args, char *)));
 	else if (type == 'p')
-		return (ft_print_ptr(va_arg(args, unsigned long long)));
+		return (ft_print_ptr(va_arg(args, unsigned long)));
 	else if (type == 'd' || type == 'i')
 		return (ft_print_int(va_arg(args, int)));
 	else if (type == 'u')

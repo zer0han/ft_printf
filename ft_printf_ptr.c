@@ -18,7 +18,7 @@ static int	ft_ptr_len(unsigned long nbr)
 
 	len = 0;
 	if (nbr == 0)
-		return (0);
+		return (1);
 	while (nbr != 0)
 	{
 		nbr = nbr / 16;
@@ -41,18 +41,18 @@ static void	ft_put_ptr(unsigned long nbr)
 		ft_putchar_fd(base[nbr], 1);
 }
 
-int	ft_print_ptr(unsigned long long ptr)
+int	ft_print_ptr(unsigned long ptr)
 {
 	int	len;
 
 	len = 0;
-	len += write (1, "0x", 2);
 	if (ptr == 0)
 	{
-		len += write (1, "0", 1);
+		len += write(1, "(nil)", 5);
 	}
 	else
 	{
+		len += write(1, "0x", 2);
 		ft_put_ptr(ptr);
 		len += ft_ptr_len(ptr);
 	}

@@ -22,7 +22,7 @@ AR	= ar rcs
 
 SRCS	= ft_printf.c ft_print_utils.c ft_printf_unsigned.c \
 			ft_printf_ptr.c ft_printf_hexa.c \
-			ft_itoa.c ft_strlen.c
+			ft_printf_int.c
 
 OBJS	= $(SRCS:.c=.o)
 

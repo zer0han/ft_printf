@@ -25,7 +25,7 @@ static int	ft_nbr_len(unsigned int nbr)
 	return (len);
 }
 
-static char	*ft_uitoa(unsigned int n)
+static char	*ft_unsigned_itoa(unsigned int n)
 {
 	char	*nbr;
 	int		len;
@@ -53,7 +53,7 @@ int	ft_print_unsigned(unsigned int n)
 		prt_len += write (1, "0", 1);
 	else
 	{
-		nbr = ft_uitoa(n);
+		nbr = ft_unsigned_itoa(n);
 		prt_len += ft_print_str(nbr);
 		free (nbr);
 	}
