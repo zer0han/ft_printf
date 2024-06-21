@@ -37,6 +37,8 @@ static int	ft_format(char type, va_list args)
 	else if (type == 'X')
 		return (ft_print_hexa(va_arg(args, unsigned int), 1));
 	return (0);
+	if (!type)
+		return (-1);
 }
 
 int	ft_printf(const char *str, ...)
