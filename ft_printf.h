@@ -34,8 +34,4 @@ int		ft_print_hexa(unsigned int nbr, int uppercase);
 
 void	ft_putchar_fd(char c, int fd);
 
-size_t	ft_strlen(char const *str);
-
-void	ft_putstr(char *str);
-
 #endif

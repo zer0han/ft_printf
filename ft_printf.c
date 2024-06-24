@@ -36,9 +36,9 @@ static int	ft_format(char type, va_list args)
 		return (ft_print_hexa(va_arg(args, unsigned int), 0));
 	else if (type == 'X')
 		return (ft_print_hexa(va_arg(args, unsigned int), 1));
-	return (0);
-	if (!type)
+	else
 		return (-1);
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
@@ -50,12 +50,12 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	i = 0;
 	len = 0;
+	if (!str)
+		return (-1);
 	while (str[i])
 	{
 		if (str[i] == '%')
-		{
 			len += ft_format(str[++i], args);
-		}
 		else
 			len += ft_charprint(str[i]);
 		i++;

@@ -17,7 +17,7 @@ void	ft_putchar_fd(char c, int fd)
 	write (fd, &c, 1);
 }
 
-void	ft_putstr(char *str)
+static void	ft_putstr(char *str)
 {
 	int	i;
 
@@ -29,6 +29,16 @@ void	ft_putstr(char *str)
 	}
 }
 
+static size_t	ft_strlen(char const *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
 int	ft_print_str(char *str)
 {
 	if (str == NULL)
@@ -38,16 +48,6 @@ int	ft_print_str(char *str)
 	}
 	ft_putstr(str);
 	return (ft_strlen(str));
-}
-
-size_t	ft_strlen(char const *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
 }
 
 int	ft_percent_print(void)
